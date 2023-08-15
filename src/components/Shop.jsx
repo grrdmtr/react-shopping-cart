@@ -5,7 +5,7 @@ import styles from "./Shop.module.css"
 
 function Shop() {
   // eslint-disable-next-line no-unused-vars
-  const [cart, handleAddToCard] = useOutletContext();
+  const [cart, handleAddToCart] = useOutletContext();
 
   const [products, setProducts] = useState([])
 
@@ -16,7 +16,6 @@ function Shop() {
       })
       .then(data => {
         setProducts(data)
-        console.log(products)
       })
   }
 
@@ -29,10 +28,10 @@ function Shop() {
       {products.length > 0 && (
         <div className={styles.container}>
           {products.map(product => (
-            <>
+            <div key={product.id}>
               <Product item={product} />
-              <button onClick={() => handleAddToCard(product)}>Add to cart</button>
-            </>
+              <button onClick={() => handleAddToCart(product)}>Add to cart</button>
+            </div>
           ))}
         </div>
       )}
