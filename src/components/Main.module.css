@@ -1,0 +1,19 @@
+img {
+  width: 50vw;
+}
+
+.text {
+  text-align: center;
+  max-width: 50vw;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+}
+
+.content h3 {
+  font-size: 26px;
+  font-weight: 600;
+}
