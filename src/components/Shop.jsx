@@ -1,12 +1,10 @@
-import { useEffect, useState } from 'react'
-import { useOutletContext } from 'react-router-dom'
+import { useEffect, useState, useContext } from 'react'
+import { AppContext } from '../App'; // Import the context
 import Product from "./Product"
 import styles from "./Shop.module.css"
 
 function Shop() {
-  // eslint-disable-next-line no-unused-vars
-  const [cart, handleAddToCart] = useOutletContext();
-
+  const { handleAddToCart } = useContext(AppContext);
   const [products, setProducts] = useState([])
 
   const fetchProductsData = () => {

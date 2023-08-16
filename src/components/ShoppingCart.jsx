@@ -1,32 +1,28 @@
-import { useState } from 'react'; // Added useState import
-import { useOutletContext } from 'react-router-dom';
+import { useState, useContext } from 'react'; // Added useState import
+import { AppContext } from '../App'; // Import the context
 
 function ShoppingCart() {
-  const [cart] = useOutletContext();
+  const { cart, updateCart } = useContext(AppContext); // Use useContext
   const [newCart, setNewCart] = useState(cart); // Initialize local state
 
   const handleDecrease = (product) => {
-    const updatedCart = newCart.map((item) =>
+    const updatedCart = newCart.map(item =>
       item.id === product.id
-        ? {
-            ...item,
-            quantity: Math.max((item.quantity || 1) - 1, 0),
-          }
+        ? { ...item, quantity: Math.max(item.quantity - 1, 0) }
         : item
     );
     setNewCart(updatedCart);
+    updateCart(updatedCart);
   };
 
   const handleIncrease = (product) => {
-    const updatedCart = newCart.map((item) =>
+    const updatedCart = newCart.map(item =>
       item.id === product.id
-        ? {
-            ...item,
-            quantity: Math.max((item.quantity || 1) + 1, 0),
-          }
+        ? { ...item, quantity: (item.quantity || 0) + 1 }
         : item
     );
-    setNewCart(updatedCart); // Update local state
+    setNewCart(updatedCart);
+    updateCart(updatedCart);
   };
 
   if (newCart && newCart.length > 0) {
