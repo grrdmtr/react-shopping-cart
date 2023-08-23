@@ -10,8 +10,8 @@ function Navbar() {
       </Link>
       <ul className={styles.listItems}>
         <Link to='/'>About us</Link>
-        <Link to="shop">Shop</Link>
-        <Link to="shopping-cart">Shopping cart</Link>
+        <Link to="/shop">Shop</Link>
+        <Link to='/shopping-cart'>Shopping cart</Link>
       </ul>
     </div>
   )

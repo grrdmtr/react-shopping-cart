@@ -6,8 +6,12 @@ import './App.css'
 export const AppContext = React.createContext(); // Create a context
 
 function App() {
-
   const [cart, setCart] = useState([])
+  const [visible, setVisible] = useState(true);
+
+  const handleVisibility = () => {
+    setVisible(!visible);
+  };
 
   const handleAddToCart = (product) => {
     const existingProduct = cart.find(item => item.id === product.id);
@@ -29,12 +33,14 @@ function App() {
     cart,
     handleAddToCart,
     updateCart,
+    visible, // Pass the value directly
+    handleVisibility, // Pass the function directly
   };
 
   return (
     <>
-    <Navbar />
     <AppContext.Provider value={contextValue}>
+      <Navbar />
       <Outlet />
     </AppContext.Provider>
   </>

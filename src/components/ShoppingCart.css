@@ -1,0 +1,22 @@
+table {
+  border-bottom: 1px solid black;
+}
+
+td {
+  padding: 10px;
+}
+
+.qty button {
+  padding: 5px;
+}
+
+.cart-popup-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+td .cart-image {
+  width: 60px;
+}
